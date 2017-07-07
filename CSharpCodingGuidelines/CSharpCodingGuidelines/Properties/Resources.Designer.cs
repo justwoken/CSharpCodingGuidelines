@@ -8,7 +8,7 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace SoftServe.CSharpCodingGuidelines.WpfApp.Properties {
+namespace Justwoken.CSharpCodingGuidelines.WpfApp.Properties {
     using System;
     
     
@@ -39,7 +39,7 @@ namespace SoftServe.CSharpCodingGuidelines.WpfApp.Properties {
         internal static global::System.Resources.ResourceManager ResourceManager {
             get {
                 if (object.ReferenceEquals(resourceMan, null)) {
-                    global::System.Resources.ResourceManager temp = new global::System.Resources.ResourceManager("SoftServe.CSharpCodingGuidelines.WpfApp.Properties.Resources", typeof(Resources).Assembly);
+                    global::System.Resources.ResourceManager temp = new global::System.Resources.ResourceManager("Justwoken.CSharpCodingGuidelines.WpfApp.Properties.Resources", typeof(Resources).Assembly);
                     resourceMan = temp;
                 }
                 return resourceMan;

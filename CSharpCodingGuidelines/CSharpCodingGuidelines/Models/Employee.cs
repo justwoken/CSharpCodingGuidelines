@@ -1,4 +1,4 @@
-﻿namespace SoftServe.CSharpCodingGuidelines.WpfApp.Models
+﻿namespace Justwoken.CSharpCodingGuidelines.WpfApp.Models
 {
     /// <summary>
     /// Represents employee.

@@ -1,4 +1,4 @@
-﻿namespace SoftServe.CSharpCodingGuidelines.WpfApp
+﻿namespace Justwoken.CSharpCodingGuidelines.WpfApp
 {
     /// <summary>
     /// Example interface.

@@ -1,7 +1,7 @@
 ﻿using System;
 using System.Text;
 
-namespace SoftServe.CSharpCodingGuidelines.WpfApp
+namespace Justwoken.CSharpCodingGuidelines.WpfApp
 {
     /// <summary>
     /// Members organization example, including naming conventions

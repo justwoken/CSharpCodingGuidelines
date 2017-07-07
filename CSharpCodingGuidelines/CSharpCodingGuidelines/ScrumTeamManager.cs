@@ -1,10 +1,10 @@
-﻿using SoftServe.CSharpCodingGuidelines.WpfApp.Models;
-using SoftServe.CSharpCodingGuidelines.WpfApp.Properties;
+﻿using Justwoken.CSharpCodingGuidelines.WpfApp.Models;
+using Justwoken.CSharpCodingGuidelines.WpfApp.Properties;
 using System;
 using System.Collections.Generic;
 using System.Linq;
 
-namespace SoftServe.CSharpCodingGuidelines.WpfApp
+namespace Justwoken.CSharpCodingGuidelines.WpfApp
 {
     /// <summary>
     /// SCRUM team manager.

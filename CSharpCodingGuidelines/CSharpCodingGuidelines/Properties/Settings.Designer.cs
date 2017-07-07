@@ -8,7 +8,7 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace SoftServe.CSharpCodingGuidelines.WpfApp.Properties {
+namespace Justwoken.CSharpCodingGuidelines.WpfApp.Properties {
     
     
     [global::System.Runtime.CompilerServices.CompilerGeneratedAttribute()]

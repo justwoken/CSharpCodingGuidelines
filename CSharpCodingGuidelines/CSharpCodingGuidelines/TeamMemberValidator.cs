@@ -1,16 +1,16 @@
-﻿using SoftServe.CSharpCodingGuidelines.WpfApp.Models;
+﻿using Justwoken.CSharpCodingGuidelines.WpfApp.Models;
 
-namespace SoftServe.CSharpCodingGuidelines.WpfApp
+namespace Justwoken.CSharpCodingGuidelines.WpfApp
 {
     /// <summary>
     /// Team member validator class.
     /// </summary>
-    /// <seealso cref="SoftServe.CSharpCodingGuidelines.WpfApp.ITeamMemberValidator" />
+    /// <seealso cref="Justwoken.CSharpCodingGuidelines.WpfApp.ITeamMemberValidator" />
     public class TeamMemberValidator : ITeamMemberValidator
     {
         public bool Validate(TeamMember teamMember)
         {
-            // NOTE: Do not compare to string.Empty or “”, use special methods
+            // NOTE: Do not compare to string.Empty or "", use special methods
             return teamMember != null
                    && string.IsNullOrWhiteSpace(teamMember.FirstName)
                    && string.IsNullOrWhiteSpace(teamMember.LastName);

@@ -1,6 +1,6 @@
-﻿using SoftServe.CSharpCodingGuidelines.WpfApp.Models;
+﻿using Justwoken.CSharpCodingGuidelines.WpfApp.Models;
 
-namespace SoftServe.CSharpCodingGuidelines.WpfApp
+namespace Justwoken.CSharpCodingGuidelines.WpfApp
 {
     /// <summary>
     /// Team member validator interface.

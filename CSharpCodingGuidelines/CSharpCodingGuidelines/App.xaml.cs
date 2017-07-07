@@ -1,7 +1,7 @@
 ﻿using Microsoft.Practices.Unity;
 using System.Windows;
 
-namespace SoftServe.CSharpCodingGuidelines.WpfApp
+namespace Justwoken.CSharpCodingGuidelines.WpfApp
 {
     /// <summary>
     /// Interaction logic for App.xaml
