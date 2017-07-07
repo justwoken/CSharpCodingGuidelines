@@ -76,6 +76,7 @@ namespace SoftServe.CSharpCodingGuidelines.WpfApp
         /// <param name="initialTeam">Initial team</param>
         public void Initialize(IEnumerable<TeamMember> initialTeam)
         {
+            // NOTE: please use "!x.Any()" instead of "x.Any() == false" or "x.Count() == 0"
             if (initialTeam == null || !initialTeam.Any())
             {
                 return;

@@ -92,6 +92,8 @@ namespace SoftServe.CSharpCodingGuidelines.WpfApp
 
             // use var if type is obvious
             var stringBuilder = new StringBuilder(INTERNAL_CONSTANT);
+
+            // NOTE: prefer soft "as" cast over direct cast, then check null
             var testObject = stringBuilder as object;
 
             // use type name if it's not so obvious
