@@ -77,5 +77,14 @@ namespace SoftServe.CSharpCodingGuidelines.WpfApp.Properties {
                 return ResourceManager.GetString("ScrumTeamManager_TeamMemberAddedFormat", resourceCulture);
             }
         }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Finally UI designer added: {0} {1}.
+        /// </summary>
+        internal static string ScrumTeamManager_UIDesignerAddedFormat {
+            get {
+                return ResourceManager.GetString("ScrumTeamManager_UIDesignerAddedFormat", resourceCulture);
+            }
+        }
     }
 }

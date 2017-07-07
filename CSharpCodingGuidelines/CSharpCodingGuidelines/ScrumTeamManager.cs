@@ -51,7 +51,11 @@ namespace SoftServe.CSharpCodingGuidelines.WpfApp
 
         private void NotifyTeamMemberAdded(TeamMember teamMember)
         {
-            string notificationMessage = string.Format(Resources.ScrumTeamManager_TeamMemberAddedFormat,
+            string noticationFormat = teamMember.Role == TeamRole.UIDesigner
+                                      ? Resources.ScrumTeamManager_UIDesignerAddedFormat
+                                      : Resources.ScrumTeamManager_TeamMemberAddedFormat;
+
+            string notificationMessage = string.Format(noticationFormat,
                                                        teamMember.FirstName,
                                                        teamMember.LastName);
 
@@ -108,12 +112,8 @@ namespace SoftServe.CSharpCodingGuidelines.WpfApp
         /// <returns>SCRUM master's last name or empty string.</returns>
         public string GetScrumMasterLastName()
         {
-            string lastName = teamMembers.FirstOrDefault(t => t.Role == TeamRole.ScrumMaster)
-                                         ?.LastName;
-
-            return !string.IsNullOrWhiteSpace(lastName)
-                   ? lastName
-                   : string.Empty;
+            TeamMember scrumMaster = teamMembers.FirstOrDefault(t => t.Role == TeamRole.ScrumMaster);
+            return scrumMaster?.LastName ?? string.Empty;
         }
 
         /// <summary>

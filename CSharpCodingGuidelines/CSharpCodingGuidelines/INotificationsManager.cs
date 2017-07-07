@@ -1,7 +1,7 @@
 ﻿namespace SoftServe.CSharpCodingGuidelines.WpfApp
 {
     /// <summary>
-    /// Ntofications Manager interface.
+    /// Notifications manager interface.
     /// </summary>
     public interface INotificationsManager
     {

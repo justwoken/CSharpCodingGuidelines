@@ -123,4 +123,7 @@
   <data name="ScrumTeamManager_TeamMemberAddedFormat" xml:space="preserve">
     <value>New team member added: {0} {1}</value>
   </data>
+  <data name="ScrumTeamManager_UIDesignerAddedFormat" xml:space="preserve">
+    <value>Finally UI designer added: {0} {1}</value>
+  </data>
 </root>
