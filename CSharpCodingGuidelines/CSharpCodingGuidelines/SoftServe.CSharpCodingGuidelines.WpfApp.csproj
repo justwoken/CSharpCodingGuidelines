@@ -59,8 +59,8 @@
     <Compile Include="ITeamMemberValidator.cs" />
     <Compile Include="Models\Employee.cs" />
     <Compile Include="Models\TeamMember.cs" />
-    <Compile Include="IAnotherSampleInterface.cs" />
-    <Compile Include="ISampleInterface.cs" />
+    <Compile Include="IForAnotherExample.cs" />
+    <Compile Include="IForExample.cs" />
     <Compile Include="MembersOrganizationExample.cs" />
     <Compile Include="ScrumTeamManager.cs" />
     <Compile Include="Models\TeamRole.cs" />

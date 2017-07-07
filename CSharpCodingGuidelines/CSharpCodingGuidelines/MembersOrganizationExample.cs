@@ -14,8 +14,8 @@ namespace SoftServe.CSharpCodingGuidelines.WpfApp
         private readonly int privateReadonlyField = 0;
         private readonly string anotherPrivateReadonlyField = "test";
 
-        private readonly IAnotherSampleInterface anotherSampleInterface;
-        private readonly ISampleInterface sampleInterface;
+        private readonly IForAnotherExample anotherSampleInterface;
+        private readonly IForExample sampleInterface;
 
         private int privateField;
         private string anotherPrivateField;
@@ -39,8 +39,8 @@ namespace SoftServe.CSharpCodingGuidelines.WpfApp
         /// <summary>
         /// Initializes a new instance of the <see cref="TeamMember"/> class.
         /// </summary>
-        public MembersOrganizationExample(ISampleInterface sampleInterface,
-                                          IAnotherSampleInterface anotherSampleInterface)
+        public MembersOrganizationExample(IForExample sampleInterface,
+                                          IForAnotherExample anotherSampleInterface)
         {
             this.sampleInterface = sampleInterface;
             this.anotherSampleInterface = anotherSampleInterface;
