@@ -15,7 +15,7 @@ namespace SoftServe.CSharpCodingGuidelines.WpfApp
         private readonly string anotherPrivateReadonlyField = "test";
 
         private readonly IForAnotherExample anotherSampleInterface;
-        private readonly IForExample sampleInterface;
+        private readonly IForExample<int, string> sampleInterface;
 
         private int privateField;
         private string anotherPrivateField;
@@ -39,7 +39,10 @@ namespace SoftServe.CSharpCodingGuidelines.WpfApp
         /// <summary>
         /// Initializes a new instance of the <see cref="TeamMember"/> class.
         /// </summary>
-        public MembersOrganizationExample(IForExample sampleInterface,
+        /// <remarks>
+        /// NOTE: please organize input parameters one below another for better readability.
+        /// </remarks>
+        public MembersOrganizationExample(IForExample<int, string> sampleInterface,
                                           IForAnotherExample anotherSampleInterface)
         {
             this.sampleInterface = sampleInterface;
@@ -90,7 +93,8 @@ namespace SoftServe.CSharpCodingGuidelines.WpfApp
             // use local constants with descriptive names for magic numbers
             const string INTERNAL_CONSTANT = "test";
 
-            // use var if type is obvious
+            // NOTE: use var if type is obvious
+            // NOTE: don't shorten words like "strBldr"
             var stringBuilder = new StringBuilder(INTERNAL_CONSTANT);
 
             // NOTE: prefer soft "as" cast over direct cast, then check null

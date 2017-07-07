@@ -70,13 +70,25 @@ namespace SoftServe.CSharpCodingGuidelines.WpfApp
             }
         }
 
+        // NOTE: CSV is 3-char abbreviation - use it as a word.
+        private string GenerateCsvString(int[] integers)
+        {
+            // NOTE: instead of string builder, or string concatenation
+            // to create symbol-separated string, use string.Join
+            const string COMMA = ",";
+            return string.Join(COMMA, integers);
+        }
+
         /// <summary>
         /// Initializes Scrum Team Manager instance
         /// </summary>
         /// <param name="initialTeam">Initial team</param>
         public void Initialize(IEnumerable<TeamMember> initialTeam)
         {
-            // NOTE: please use "!x.Any()" instead of "x.Any() == false" or "x.Count() == 0"
+            // NOTE: DO USE "!x.Any(x => x > 0)" 
+            // don't use "!x.Where(x => x > 0).Any()"
+            // don't use "x.Any() == false"
+            // don't use "x.Count() == 0"
             if (initialTeam == null || !initialTeam.Any())
             {
                 return;
