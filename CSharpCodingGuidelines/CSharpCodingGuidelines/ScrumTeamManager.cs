@@ -36,8 +36,8 @@ namespace Justwoken.CSharpCodingGuidelines.WpfApp
         }
 
         private bool CheckMemberValidAndCanBeAdded(TeamMember teamMember) =>
-            teamMembers.Count > MAX_TEAM_MEMBERS_COUNT
-            && !teamMemberValidator.Validate(teamMember);
+            teamMembers.Count < MAX_TEAM_MEMBERS_COUNT
+            && teamMemberValidator.Validate(teamMember);
 
         private bool CheckIfAddingSecondScrumMaster(TeamMember teamMember)
         {
@@ -115,8 +115,8 @@ namespace Justwoken.CSharpCodingGuidelines.WpfApp
         public IEnumerable<TeamRole> GetAvailableTeamRoles()
         {
             return teamMembers?.Select(t => t.Role)
-                              ?.Except(new[] { TeamRole.ScrumMaster })
-                              ?.Distinct();
+                              .Except(new[] { TeamRole.ScrumMaster })
+                              .Distinct();
         }
 
         /// <summary>
@@ -138,7 +138,7 @@ namespace Justwoken.CSharpCodingGuidelines.WpfApp
             lock (locker)
             {
                 // try flatten methods and not to use nested "if" blocks
-                if (CheckMemberValidAndCanBeAdded(teamMember))
+                if (!CheckMemberValidAndCanBeAdded(teamMember))
                 {
                     return;
                 }

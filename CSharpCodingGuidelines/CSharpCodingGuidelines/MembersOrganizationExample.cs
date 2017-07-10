@@ -4,7 +4,7 @@ using System.Text;
 namespace Justwoken.CSharpCodingGuidelines.WpfApp
 {
     /// <summary>
-    /// Members organization example, including naming conventions
+    /// Members organization example, including naming conventions.
     /// </summary>
     public class MembersOrganizationExample
     {
@@ -37,8 +37,10 @@ namespace Justwoken.CSharpCodingGuidelines.WpfApp
         public const string ANOTHER_PUBLIC_CONSTANT = "test";
 
         /// <summary>
-        /// Initializes a new instance of the <see cref="TeamMember"/> class.
+        /// Initializes a new instance of the <see cref="TeamMember" /> class.
         /// </summary>
+        /// <param name="sampleInterface">The sample interface.</param>
+        /// <param name="anotherSampleInterface">Another sample interface.</param>
         /// <remarks>
         /// NOTE: please organize input parameters one below another for better readability.
         /// </remarks>
@@ -97,13 +99,14 @@ namespace Justwoken.CSharpCodingGuidelines.WpfApp
             // NOTE: don't shorten words like "strBldr"
             var stringBuilder = new StringBuilder(INTERNAL_CONSTANT);
 
-            // NOTE: prefer soft "as" cast over direct cast, then check null
+            // NOTE: prefer soft "as" cast over direct cast, then check for null
             var testObject = stringBuilder as object;
 
-            // use type name if it's not so obvious
-            Type type = GetType();
-
-            ExecuteProtectedMethod();
+            if (testObject != null)
+            {
+                // use type name if it's not so obvious
+                int type = testObject.GetHashCode();
+            }
         }
 
         /// <summary>
