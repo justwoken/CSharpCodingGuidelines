@@ -8,8 +8,8 @@ namespace Justwoken.CSharpCodingGuidelines.WpfApp
     /// </summary>
     public class MembersOrganizationExample
     {
-        private const int PRIVATE_CONSTANT = 1;
         private const string ANOTHER_PRIVATE_CONSTANT = "test";
+        private const int PRIVATE_CONSTANT = 1;
 
         private readonly int privateReadonlyField = 0;
         private readonly string anotherPrivateReadonlyField = "test";
@@ -17,8 +17,8 @@ namespace Justwoken.CSharpCodingGuidelines.WpfApp
         private readonly IForAnotherExample anotherSampleInterface;
         private readonly IForExample<int, string> sampleInterface;
 
-        private int privateField;
         private string anotherPrivateField;
+        private int privateField;
 
         private static readonly int privateStaticReadonlyField = 1;
         private static readonly string anotherPrivateStaticReadonlyField = "test";
@@ -27,14 +27,14 @@ namespace Justwoken.CSharpCodingGuidelines.WpfApp
         private static string anotherPrivateStaticField;
 
         /// <summary>
-        /// The public constant
-        /// </summary>
-        public const int PUBLIC_CONSTANT = 2;
-
-        /// <summary>
         /// Another public constant
         /// </summary>
         public const string ANOTHER_PUBLIC_CONSTANT = "test";
+
+        /// <summary>
+        /// The public constant
+        /// </summary>
+        public const int PUBLIC_CONSTANT = 2;
 
         /// <summary>
         /// Initializes a new instance of the <see cref="MembersOrganizationExample"/> class.
@@ -68,7 +68,8 @@ namespace Justwoken.CSharpCodingGuidelines.WpfApp
 
         private void ExecutePrivateMethod()
         {
-            PublicEventHappened?.Invoke(this, EventArgs.Empty);
+            PublicEventHappened?.Invoke(this,
+                                        EventArgs.Empty);
         }
 
         /// <summary>
