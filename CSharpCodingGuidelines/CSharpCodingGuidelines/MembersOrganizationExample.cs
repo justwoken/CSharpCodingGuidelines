@@ -37,7 +37,7 @@ namespace Justwoken.CSharpCodingGuidelines.WpfApp
         public const string ANOTHER_PUBLIC_CONSTANT = "test";
 
         /// <summary>
-        /// Initializes a new instance of the <see cref="TeamMember" /> class.
+        /// Initializes a new instance of the <see cref="MembersOrganizationExample"/> class.
         /// </summary>
         /// <param name="sampleInterface">The sample interface.</param>
         /// <param name="anotherSampleInterface">Another sample interface.</param>
