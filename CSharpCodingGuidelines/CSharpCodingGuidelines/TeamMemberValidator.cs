@@ -5,7 +5,7 @@ namespace Justwoken.CSharpCodingGuidelines.WpfApp
     /// <summary>
     /// Team member validator class.
     /// </summary>
-    /// <seealso cref="Justwoken.CSharpCodingGuidelines.WpfApp.ITeamMemberValidator" />
+    /// <seealso cref="Justwoken.CSharpCodingGuidelines.WpfApp.ITeamMemberValidator"/>
     public class TeamMemberValidator : ITeamMemberValidator
     {
         /// <summary>

@@ -1,8 +1,8 @@
-﻿using Justwoken.CSharpCodingGuidelines.WpfApp.Models;
-using Justwoken.CSharpCodingGuidelines.WpfApp.Properties;
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using Justwoken.CSharpCodingGuidelines.WpfApp.Models;
+using Justwoken.CSharpCodingGuidelines.WpfApp.Properties;
 
 namespace Justwoken.CSharpCodingGuidelines.WpfApp
 {
@@ -13,13 +13,13 @@ namespace Justwoken.CSharpCodingGuidelines.WpfApp
     {
         private const int MAX_TEAM_MEMBERS_COUNT = 10;
 
-        private List<TeamMember> teamMembers;
-
         private readonly INotificationsManager notificationsManager;
         private readonly ITeamMemberValidator teamMemberValidator;
 
         private readonly Guid teamGuid = Guid.NewGuid();
         private readonly object locker = new object();
+
+        private List<TeamMember> teamMembers;
 
         /// <summary>
         /// Initializes a new instance of the <see cref="ScrumTeamManager"/> class.
@@ -35,9 +35,11 @@ namespace Justwoken.CSharpCodingGuidelines.WpfApp
             this.teamMemberValidator = teamMemberValidator;
         }
 
-        private bool CheckMemberValidAndCanBeAdded(TeamMember teamMember) =>
-            teamMembers.Count < MAX_TEAM_MEMBERS_COUNT
-            && teamMemberValidator.Validate(teamMember);
+        private bool CheckMemberValidAndCanBeAdded(TeamMember teamMember)
+        {
+            return teamMembers.Count < MAX_TEAM_MEMBERS_COUNT
+                   && teamMemberValidator.Validate(teamMember);
+        }
 
         private bool CheckIfAddingSecondScrumMaster(TeamMember teamMember)
         {
@@ -45,15 +47,21 @@ namespace Justwoken.CSharpCodingGuidelines.WpfApp
                    && teamMembers.Any(t => t.Role == TeamRole.ScrumMaster);
         }
 
-        private bool CheckTeamMemberNotAssigned(TeamMember teamMember) => teamMember.TeamGuid == Guid.Empty;
+        private bool CheckTeamMemberNotAssigned(TeamMember teamMember)
+        {
+            return teamMember.TeamGuid == Guid.Empty;
+        }
 
-        private void AssignTeamGuidToMember(TeamMember teamMember) => teamMember.TeamGuid = teamGuid;
+        private void AssignTeamGuidToMember(TeamMember teamMember)
+        {
+            teamMember.TeamGuid = teamGuid;
+        }
 
         private void NotifyTeamMemberAdded(TeamMember teamMember)
         {
             string noticationFormat = teamMember.Role == TeamRole.UIDesigner
-                                      ? Resources.ScrumTeamManager_UIDesignerAddedFormat
-                                      : Resources.ScrumTeamManager_TeamMemberAddedFormat;
+                                          ? Resources.ScrumTeamManager_UIDesignerAddedFormat
+                                          : Resources.ScrumTeamManager_TeamMemberAddedFormat;
 
             string notificationMessage = string.Format(noticationFormat,
                                                        teamMember.FirstName,
@@ -76,7 +84,8 @@ namespace Justwoken.CSharpCodingGuidelines.WpfApp
             // NOTE: instead of string builder, or string concatenation
             // to create symbol-separated string, use string.Join
             const string COMMA = ",";
-            return string.Join(COMMA, integers);
+            return string.Join(COMMA,
+                               integers);
         }
 
         /// <summary>
@@ -89,7 +98,8 @@ namespace Justwoken.CSharpCodingGuidelines.WpfApp
             // don't use "!x.Where(x => x > 0).Any()"
             // don't use "x.Any() == false"
             // don't use "x.Count() == 0"
-            if (initialTeam == null || !initialTeam.Any())
+            if (initialTeam == null
+                || !initialTeam.Any())
             {
                 return;
             }
@@ -115,7 +125,10 @@ namespace Justwoken.CSharpCodingGuidelines.WpfApp
         public IEnumerable<TeamRole> GetAvailableTeamRoles()
         {
             return teamMembers?.Select(t => t.Role)
-                              .Except(new[] { TeamRole.ScrumMaster })
+                              .Except(new[]
+                                      {
+                                          TeamRole.ScrumMaster
+                                      })
                               .Distinct();
         }
 

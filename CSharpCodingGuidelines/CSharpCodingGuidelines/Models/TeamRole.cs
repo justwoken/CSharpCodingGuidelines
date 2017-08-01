@@ -9,6 +9,7 @@
         ScrumMaster,
         Developer,
         Tester,
+
         // NOTE: UI abbreviation
         UIDesigner,
         Analyst,

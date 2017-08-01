@@ -5,7 +5,7 @@ namespace Justwoken.CSharpCodingGuidelines.WpfApp.Models
     /// <summary>
     /// Represents team member.
     /// </summary>
-    /// <seealso cref="Justwoken.CSharpCodingGuidelines.WpfApp.Models.Employee" />
+    /// <seealso cref="Justwoken.CSharpCodingGuidelines.WpfApp.Models.Employee"/>
     public class TeamMember : Employee
     {
         /// <summary>
