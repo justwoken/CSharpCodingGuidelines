@@ -120,10 +120,10 @@
   <data name="ScrumTeamManager_TeamAlreadyHasScrumMaster" xml:space="preserve">
     <value>Team already has a SCRUM master</value>
   </data>
-  <data name="ScrumTeamManager_TeamMemberAddedFormat" xml:space="preserve">
-    <value>New team member added: {0} {1}</value>
+  <data name="ScrumTeamManager_TeamMemberAdded" xml:space="preserve">
+    <value>New team member added</value>
   </data>
-  <data name="ScrumTeamManager_UIDesignerAddedFormat" xml:space="preserve">
-    <value>Finally UI designer added: {0} {1}</value>
+  <data name="ScrumTeamManager_UIDesignerAdded" xml:space="preserve">
+    <value>Finally UI designer added</value>
   </data>
 </root>

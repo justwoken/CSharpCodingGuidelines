@@ -7,7 +7,7 @@ using Justwoken.CSharpCodingGuidelines.WpfApp.Properties;
 namespace Justwoken.CSharpCodingGuidelines.WpfApp
 {
     /// <summary>
-    /// SCRUM team manager.
+    /// SCRUM team manager maintains collections of team members.
     /// </summary>
     public class ScrumTeamManager
     {
@@ -29,22 +29,48 @@ namespace Justwoken.CSharpCodingGuidelines.WpfApp
         public ScrumTeamManager(INotificationsManager notificationsManager,
                                 ITeamMemberValidator teamMemberValidator)
         {
-            // use constructor for dependency injection and Initialize method
-            // to pass some initial data
+            // TIP: use constructor for dependency injection to avoid Injection Parameters
+            // TIP: use Initialize method or initial data provider to pass some initial data
             this.notificationsManager = notificationsManager;
             this.teamMemberValidator = teamMemberValidator;
         }
 
-        private bool CheckMemberValidAndCanBeAdded(TeamMember teamMember)
+        // TIP: CSV is 3-char abbreviation - use it as a word.
+        private string GenerateCsvString(int[] integers)
         {
-            return teamMembers.Count < MAX_TEAM_MEMBERS_COUNT
-                   && teamMemberValidator.Validate(teamMember);
+            const string COMMA = ",";
+            // TIP: use string.Join to create separated string
+            // TIP: if 3 or less short-named parameters used - prefer to put on single line
+            return string.Join(COMMA, integers);
         }
 
-        private bool CheckIfAddingSecondScrumMaster(TeamMember teamMember)
+        /// <summary>
+        /// Initializes Scrum Team Manager instance
+        /// </summary>
+        /// <param name="initialTeam">Initial team</param>
+        public void Initialize(IEnumerable<TeamMember> initialTeam)
         {
-            return teamMember.Role == TeamRole.ScrumMaster
-                   && teamMembers.Any(t => t.Role == TeamRole.ScrumMaster);
+            // TIP: prefer "x.Any(...)" over "x.Where(...).Any()"
+            // TIP: prefer "!x.Any()" over  "x.Count() == 0"
+            // TIP: prefer "result" or "!result" over "result == true" or "result == false"
+            // TIP: short boolean conditions could be put on the same line
+            if (initialTeam == null || !initialTeam.Any())
+            {
+                return;
+            }
+
+            teamMembers = new List<TeamMember>();
+
+            // TIP: prefer "foreach" over using collection.ToList().ForEach(...)
+            // TIP: prefer collection.Where(FilterMethod) over collection.Where(member => FilterMethod(member))
+            foreach (TeamMember teamMember in initialTeam.Where(CheckTeamMemberNotAssigned))
+            {
+                AddTeamMember(teamMember);
+            }
+
+            // TIP: if you already have a list instantiated - ForEach is great
+            // TIP: do not to add/delete list items inside ForEach
+            teamMembers.ForEach(AssignTeamGuidToMember);
         }
 
         private bool CheckTeamMemberNotAssigned(TeamMember teamMember)
@@ -55,67 +81,6 @@ namespace Justwoken.CSharpCodingGuidelines.WpfApp
         private void AssignTeamGuidToMember(TeamMember teamMember)
         {
             teamMember.TeamGuid = teamGuid;
-        }
-
-        private void NotifyTeamMemberAdded(TeamMember teamMember)
-        {
-            string noticationFormat = teamMember.Role == TeamRole.UIDesigner
-                                          ? Resources.ScrumTeamManager_UIDesignerAddedFormat
-                                          : Resources.ScrumTeamManager_TeamMemberAddedFormat;
-
-            string notificationMessage = string.Format(noticationFormat,
-                                                       teamMember.FirstName,
-                                                       teamMember.LastName);
-
-            try
-            {
-                notificationsManager.Notify(notificationMessage);
-            }
-            catch (Exception e)
-            {
-                Console.WriteLine(e.Message);
-                throw;
-            }
-        }
-
-        // NOTE: CSV is 3-char abbreviation - use it as a word.
-        private string GenerateCsvString(int[] integers)
-        {
-            // NOTE: instead of string builder, or string concatenation
-            // to create symbol-separated string, use string.Join
-            const string COMMA = ",";
-            return string.Join(COMMA,
-                               integers);
-        }
-
-        /// <summary>
-        /// Initializes Scrum Team Manager instance
-        /// </summary>
-        /// <param name="initialTeam">Initial team</param>
-        public void Initialize(IEnumerable<TeamMember> initialTeam)
-        {
-            // NOTE: DO USE "!x.Any(x => x > 0)" 
-            // don't use "!x.Where(x => x > 0).Any()"
-            // don't use "x.Any() == false"
-            // don't use "x.Count() == 0"
-            if (initialTeam == null
-                || !initialTeam.Any())
-            {
-                return;
-            }
-
-            teamMembers = new List<TeamMember>();
-
-            // if you want to iterate collection prefer "foreach" over using
-            // .ToList().ForEach() methods
-            foreach (TeamMember teamMember in initialTeam.Where(CheckTeamMemberNotAssigned))
-            {
-                AddTeamMember(teamMember);
-            }
-
-            // if you already have a list instantiated - ForEach is great
-            // Though still remember not to add/delete list items
-            teamMembers.ForEach(AssignTeamGuidToMember);
         }
 
         /// <summary>
@@ -138,7 +103,8 @@ namespace Justwoken.CSharpCodingGuidelines.WpfApp
         /// <returns>SCRUM master's last name or empty string.</returns>
         public string GetScrumMasterLastName()
         {
-            TeamMember scrumMaster = teamMembers.FirstOrDefault(t => t.Role == TeamRole.ScrumMaster);
+            // TIP: var can be used to shorten code, especially if type is obvious
+            var scrumMaster = teamMembers.FirstOrDefault(t => t.Role == TeamRole.ScrumMaster);
             return scrumMaster?.LastName ?? string.Empty;
         }
 
@@ -148,9 +114,10 @@ namespace Justwoken.CSharpCodingGuidelines.WpfApp
         /// <param name="teamMember">Team member to add</param>
         public void AddTeamMember(TeamMember teamMember)
         {
+            // TIP: use concurrent collections instead of locking simple collection manipulation
             lock (locker)
             {
-                // try flatten methods and not to use nested "if" blocks
+                // TIP: try flatten methods and not to use nested "if" blocks
                 if (!CheckMemberValidAndCanBeAdded(teamMember))
                 {
                     return;
@@ -167,5 +134,40 @@ namespace Justwoken.CSharpCodingGuidelines.WpfApp
                 }
             }
         }
+
+        // TIP: prefer grouping methods by functionality
+        // TIP: prefer using regions for functionality groups, not private/public groups
+        private bool CheckMemberValidAndCanBeAdded(TeamMember teamMember)
+        {
+            return teamMembers.Count < MAX_TEAM_MEMBERS_COUNT
+                   && teamMemberValidator.Validate(teamMember);
+        }
+
+        private bool CheckIfAddingSecondScrumMaster(TeamMember teamMember)
+        {
+            return teamMember.Role == TeamRole.ScrumMaster
+                   && teamMembers.Any(t => t.Role == TeamRole.ScrumMaster);
+        }
+
+        private void NotifyTeamMemberAdded(TeamMember teamMember)
+        {
+            string notication = teamMember.Role == TeamRole.UIDesigner
+                                          ? Resources.ScrumTeamManager_UIDesignerAdded
+                                          : Resources.ScrumTeamManager_TeamMemberAdded;
+
+            // TIP: prefer using string interpolation if possible
+            string notificationMessage = $"{notication}: {teamMember.FirstName} {teamMember.LastName}";
+
+            try
+            {
+                notificationsManager.Notify(notificationMessage);
+            }
+            catch (Exception e)
+            {
+                Console.WriteLine(e.Message);
+                throw;
+            }
+        }
+
     }
 }

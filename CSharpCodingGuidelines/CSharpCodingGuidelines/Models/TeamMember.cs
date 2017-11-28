@@ -16,9 +16,6 @@ namespace Justwoken.CSharpCodingGuidelines.WpfApp.Models
         /// <summary>
         /// Gets or sets the team unique identifier.
         /// </summary>
-        /// <remarks>
-        /// NOTE: GUID abbreviation
-        /// </remarks>
         public Guid TeamGuid { get; set; }
     }
 }

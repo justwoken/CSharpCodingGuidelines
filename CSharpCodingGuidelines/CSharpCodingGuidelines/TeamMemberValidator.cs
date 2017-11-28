@@ -17,7 +17,7 @@ namespace Justwoken.CSharpCodingGuidelines.WpfApp
         /// </returns>
         public bool Validate(TeamMember teamMember)
         {
-            // NOTE: Do not compare to string.Empty or "", use special methods
+            // TIP: prefer using IsNullOrWhiteSpace over comparing to string.Empty or ""
             return teamMember != null
                    && string.IsNullOrWhiteSpace(teamMember.FirstName)
                    && string.IsNullOrWhiteSpace(teamMember.LastName);

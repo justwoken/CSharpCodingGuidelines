@@ -70,20 +70,20 @@ namespace Justwoken.CSharpCodingGuidelines.WpfApp.Properties {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to New team member added: {0} {1}.
+        ///   Looks up a localized string similar to New team member added.
         /// </summary>
-        internal static string ScrumTeamManager_TeamMemberAddedFormat {
+        internal static string ScrumTeamManager_TeamMemberAdded {
             get {
-                return ResourceManager.GetString("ScrumTeamManager_TeamMemberAddedFormat", resourceCulture);
+                return ResourceManager.GetString("ScrumTeamManager_TeamMemberAdded", resourceCulture);
             }
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Finally UI designer added: {0} {1}.
+        ///   Looks up a localized string similar to Finally UI designer added.
         /// </summary>
-        internal static string ScrumTeamManager_UIDesignerAddedFormat {
+        internal static string ScrumTeamManager_UIDesignerAdded {
             get {
-                return ResourceManager.GetString("ScrumTeamManager_UIDesignerAddedFormat", resourceCulture);
+                return ResourceManager.GetString("ScrumTeamManager_UIDesignerAdded", resourceCulture);
             }
         }
     }

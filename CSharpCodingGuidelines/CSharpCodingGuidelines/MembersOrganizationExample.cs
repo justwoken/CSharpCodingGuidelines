@@ -6,6 +6,9 @@ namespace Justwoken.CSharpCodingGuidelines.WpfApp
     /// <summary>
     /// Members organization example, including naming conventions.
     /// </summary>
+    /// <remarks>
+    /// TIP: prefer giving descriptive comments over simply copying class name.
+    /// </remarks>
     public class MembersOrganizationExample
     {
         private const string ANOTHER_PRIVATE_CONSTANT = "test";
@@ -42,7 +45,7 @@ namespace Justwoken.CSharpCodingGuidelines.WpfApp
         /// <param name="sampleInterface">The sample interface.</param>
         /// <param name="anotherSampleInterface">Another sample interface.</param>
         /// <remarks>
-        /// NOTE: please organize input parameters one below another for better readability.
+        /// TIP: prefer organizing input parameters one below another for better readability.
         /// </remarks>
         public MembersOrganizationExample(IForExample<int, string> sampleInterface,
                                           IForAnotherExample anotherSampleInterface)
@@ -93,19 +96,19 @@ namespace Justwoken.CSharpCodingGuidelines.WpfApp
         /// </summary>
         public void ExecutePublicMethod()
         {
-            // use local constants with descriptive names for magic numbers
+            // TIP: prefer using local constants for magic numbers used only in scope of current method
             const string INTERNAL_CONSTANT = "test";
 
-            // NOTE: use var if type is obvious
-            // NOTE: don't shorten words like "strBldr"
+            // TIP: prefer using var if type is obvious
+            // TIP: prefer using full words for readability, avoid shortening words like "strBldr"
             var stringBuilder = new StringBuilder(INTERNAL_CONSTANT);
 
-            // NOTE: prefer soft "as" cast over direct cast, then check for null
+            // TIP: prefer soft "as" cast over direct cast, then check for null
             var testObject = stringBuilder as object;
 
             if (testObject != null)
             {
-                // use type name if it's not so obvious
+                // TIP: prefer using type name for primitives
                 int type = testObject.GetHashCode();
             }
         }
