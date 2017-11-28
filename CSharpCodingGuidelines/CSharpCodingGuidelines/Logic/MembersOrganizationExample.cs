@@ -72,8 +72,8 @@ namespace Justwoken.CSharpCodingGuidelines.WpfApp.Logic
 
         private void ExecutePrivateMethod()
         {
-            PublicEventHappened?.Invoke(this,
-                                        EventArgs.Empty);
+            // TIP: prefer using "item?.Do()" for null check, over "if (item != null) { item.Do(); }"
+            PublicEventHappened?.Invoke(this, EventArgs.Empty);
         }
 
         /// <summary>
