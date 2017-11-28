@@ -54,6 +54,7 @@
     </ApplicationDefinition>
     <Compile Include="INotificationsManager.cs" />
     <Compile Include="ITeamMemberValidator.cs" />
+    <Compile Include="Models\Constants.cs" />
     <Compile Include="Models\Employee.cs" />
     <Compile Include="Models\TeamMember.cs" />
     <Compile Include="IForAnotherExample.cs" />
@@ -62,16 +63,8 @@
     <Compile Include="ScrumTeamManager.cs" />
     <Compile Include="Models\TeamRole.cs" />
     <Compile Include="TeamMemberValidator.cs" />
-    <Page Include="MainWindow.xaml">
-      <Generator>MSBuild:Compile</Generator>
-      <SubType>Designer</SubType>
-    </Page>
     <Compile Include="App.xaml.cs">
       <DependentUpon>App.xaml</DependentUpon>
-      <SubType>Code</SubType>
-    </Compile>
-    <Compile Include="MainWindow.xaml.cs">
-      <DependentUpon>MainWindow.xaml</DependentUpon>
       <SubType>Code</SubType>
     </Compile>
   </ItemGroup>
