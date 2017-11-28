@@ -1,6 +1,7 @@
-﻿using Justwoken.CSharpCodingGuidelines.WpfApp.Models;
+﻿using Justwoken.CSharpCodingGuidelines.WpfApp.Interfaces;
+using Justwoken.CSharpCodingGuidelines.WpfApp.Models;
 
-namespace Justwoken.CSharpCodingGuidelines.WpfApp
+namespace Justwoken.CSharpCodingGuidelines.WpfApp.Logic
 {
     /// <summary>
     /// Team member validator class.

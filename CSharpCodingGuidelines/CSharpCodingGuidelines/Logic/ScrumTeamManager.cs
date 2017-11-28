@@ -1,10 +1,11 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
+﻿using Justwoken.CSharpCodingGuidelines.WpfApp.Interfaces;
 using Justwoken.CSharpCodingGuidelines.WpfApp.Models;
 using Justwoken.CSharpCodingGuidelines.WpfApp.Properties;
+using System;
+using System.Collections.Generic;
+using System.Linq;
 
-namespace Justwoken.CSharpCodingGuidelines.WpfApp
+namespace Justwoken.CSharpCodingGuidelines.WpfApp.Logic
 {
     /// <summary>
     /// SCRUM team manager maintains collections of team members.

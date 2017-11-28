@@ -1,4 +1,6 @@
-﻿using Microsoft.Practices.Unity;
+﻿using Justwoken.CSharpCodingGuidelines.WpfApp.Interfaces;
+using Justwoken.CSharpCodingGuidelines.WpfApp.Logic;
+using Microsoft.Practices.Unity;
 using System.Windows;
 
 namespace Justwoken.CSharpCodingGuidelines.WpfApp
@@ -15,7 +17,7 @@ namespace Justwoken.CSharpCodingGuidelines.WpfApp
         protected override void OnStartup(StartupEventArgs e)
         {
             var container = new UnityContainer();
-            container.RegisterType<ITeamMemberValidator, TeamMemberValidator>(new ContainerControlledLifetimeManager());
+            container.AddExtension(new MainModuleContainerConfiguration());
 
             base.OnStartup(e);
         }

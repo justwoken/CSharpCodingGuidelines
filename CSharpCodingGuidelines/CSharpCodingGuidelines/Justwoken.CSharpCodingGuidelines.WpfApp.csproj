@@ -52,17 +52,18 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
-    <Compile Include="INotificationsManager.cs" />
-    <Compile Include="ITeamMemberValidator.cs" />
+    <Compile Include="Interfaces\INotificationsManager.cs" />
+    <Compile Include="Interfaces\ITeamMemberValidator.cs" />
+    <Compile Include="MainModuleContainerConfiguration.cs" />
     <Compile Include="Models\Constants.cs" />
     <Compile Include="Models\Employee.cs" />
     <Compile Include="Models\TeamMember.cs" />
-    <Compile Include="IForAnotherExample.cs" />
-    <Compile Include="IForExample.cs" />
-    <Compile Include="MembersOrganizationExample.cs" />
-    <Compile Include="ScrumTeamManager.cs" />
+    <Compile Include="Interfaces\IForAnotherExample.cs" />
+    <Compile Include="Interfaces\IForExample.cs" />
+    <Compile Include="Logic\MembersOrganizationExample.cs" />
+    <Compile Include="Logic\ScrumTeamManager.cs" />
     <Compile Include="Models\TeamRole.cs" />
-    <Compile Include="TeamMemberValidator.cs" />
+    <Compile Include="Logic\TeamMemberValidator.cs" />
     <Compile Include="App.xaml.cs">
       <DependentUpon>App.xaml</DependentUpon>
       <SubType>Code</SubType>

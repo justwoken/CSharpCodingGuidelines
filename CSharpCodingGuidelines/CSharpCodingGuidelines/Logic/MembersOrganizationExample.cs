@@ -1,7 +1,8 @@
-﻿using System;
+﻿using Justwoken.CSharpCodingGuidelines.WpfApp.Interfaces;
+using System;
 using System.Text;
 
-namespace Justwoken.CSharpCodingGuidelines.WpfApp
+namespace Justwoken.CSharpCodingGuidelines.WpfApp.Logic
 {
     /// <summary>
     /// Members organization example, including naming conventions.

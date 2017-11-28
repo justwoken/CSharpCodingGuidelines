@@ -1,4 +1,4 @@
-﻿namespace Justwoken.CSharpCodingGuidelines.WpfApp
+﻿namespace Justwoken.CSharpCodingGuidelines.WpfApp.Interfaces
 {
     /// <summary>
     /// Notifications manager interface.
