@@ -5,7 +5,7 @@
     /// </summary>
     public enum TeamRole
     {
-        // NOTE: avoid changing default values (exception: bit flags)
+        // NOTE: avoid changing default values (exception: bit flags and part of public API)
         ScrumMaster,
         Developer,
         Tester,

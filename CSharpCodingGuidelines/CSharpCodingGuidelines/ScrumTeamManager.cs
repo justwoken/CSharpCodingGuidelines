@@ -159,12 +159,12 @@ namespace Justwoken.CSharpCodingGuidelines.WpfApp
                 if (CheckIfAddingSecondScrumMaster(teamMember))
                 {
                     notificationsManager.Notify(Resources.ScrumTeamManager_TeamAlreadyHasScrumMaster);
-                    return;
                 }
-
-                teamMembers.Add(teamMember);
-
-                NotifyTeamMemberAdded(teamMember);
+                else
+                {
+                    teamMembers.Add(teamMember);
+                    NotifyTeamMemberAdded(teamMember);
+                }
             }
         }
     }
